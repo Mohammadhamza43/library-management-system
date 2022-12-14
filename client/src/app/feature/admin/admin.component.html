@@ -1,0 +1,221 @@
+<!-- Dashboard -->
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <!-- Vertical Navbar -->
+  <nav
+    class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+    id="navbarVertical">
+    <div class="container-fluid">
+      <!-- Toggler -->
+      <button aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+              class="navbar-toggler ms-n2"
+              data-bs-target="#sidebarCollapse" data-bs-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Brand -->
+      <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
+        <!--<img alt="..." src="https://preview.webpixels.io/web/img/logos/clever-primary.svg">-->
+        <h1>LMS</h1>
+      </a>
+      <!-- User menu (mobile) -->
+      <div class="navbar-user d-lg-none">
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <!-- Toggle -->
+          <a aria-expanded="false" aria-haspopup="true" data-bs-toggle="dropdown" href="#" id="sidebarAvatar"
+             role="button">
+            <div class="avatar-parent-child">
+              <img alt="Image Placeholder"
+                   class="avatar avatar- rounded-circle"
+                   src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+              <span class="avatar-child avatar-badge bg-success"></span>
+            </div>
+          </a>
+          <!-- Menu -->
+          <div aria-labelledby="sidebarAvatar" class="dropdown-menu dropdown-menu-end">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Billing</a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidebarCollapse">
+        <!-- Navigation -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/app/admin/dashboard" routerLinkActive="active">
+              <i class="bi bi-house"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/app/admin/student" routerLinkActive="active">
+              <i class="bi bi-person"></i> Students
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/app/admin/librarian" routerLinkActive="active">
+              <i class="bi bi-person-check"></i> librarian
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/app/admin/book" routerLinkActive="active">
+              <i class="bi bi-journal-richtext"></i> Books
+              <!--<span
+                class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>-->
+            </a>
+          </li>
+        </ul>
+        <!-- Divider -->
+        <hr class="navbar-divider my-5 opacity-20">
+        <!-- Navigation -->
+        <!--<ul class="navbar-nav mb-md-4">
+          <li>
+            <div class="nav-link text-xs font-semibold text-uppercase text-muted ls-wide" href="#">
+              Contacts
+              <span
+                class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-4">13</span>
+            </div>
+          </li>
+          <li>
+            <a class="nav-link d-flex align-items-center" href="#">
+              <div class="me-4">
+                <div class="position-relative d-inline-block text-white">
+                  <img alt="Image Placeholder"
+                       class="avatar rounded-circle"
+                       src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                  <span
+                    class="position-absolute bottom-2 end-2 transform translate-x-1/2 translate-y-1/2 border-2 border-solid border-current w-3 h-3 bg-success rounded-circle"></span>
+                </div>
+              </div>
+              <div>
+                <span class="d-block text-sm font-semibold">
+                  Marie Claire
+                </span>
+                <span class="d-block text-xs text-muted font-regular">
+                  Paris, FR
+                </span>
+              </div>
+              <div class="ms-auto">
+                <i class="bi bi-chat"></i>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link d-flex align-items-center" href="#">
+              <div class="me-4">
+                <div class="position-relative d-inline-block text-white">
+                  <span class="avatar bg-soft-warning text-warning rounded-circle">JW</span>
+                  <span
+                    class="position-absolute bottom-2 end-2 transform translate-x-1/2 translate-y-1/2 border-2 border-solid border-current w-3 h-3 bg-success rounded-circle"></span>
+                </div>
+              </div>
+              <div>
+                                <span class="d-block text-sm font-semibold">
+                                    Michael Jordan
+                                </span>
+                <span class="d-block text-xs text-muted font-regular">
+                                    Bucharest, RO
+                                </span>
+              </div>
+              <div class="ms-auto">
+                <i class="bi bi-chat"></i>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link d-flex align-items-center" href="#">
+              <div class="me-4">
+                <div class="position-relative d-inline-block text-white">
+                  <img alt="..."
+                       class="avatar rounded-circle"
+                       src="https://images.unsplash.com/photo-1610899922902-c471ae684eff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                  <span
+                    class="position-absolute bottom-2 end-2 transform translate-x-1/2 translate-y-1/2 border-2 border-solid border-current w-3 h-3 bg-danger rounded-circle"></span>
+                </div>
+              </div>
+              <div>
+                                <span class="d-block text-sm font-semibold">
+                                    Heather Wright
+                                </span>
+                <span class="d-block text-xs text-muted font-regular">
+                                    London, UK
+                                </span>
+              </div>
+              <div class="ms-auto">
+                <i class="bi bi-chat"></i>
+              </div>
+            </a>
+          </li>
+        </ul>-->
+        <!-- Push content down -->
+        <div class="mt-auto"></div>
+        <!-- User (md) -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-person-square"></i> Account
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-box-arrow-left"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <!-- Header -->
+    <header class="bg-surface-primary border-bottom pt-6">
+      <div class="container-fluid">
+        <div class="mb-npx">
+          <div class="row align-items-center">
+            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+              <!-- Title -->
+              <h1 class="h2 mb-0 ls-tight">Dashboard</h1>
+            </div>
+            <!-- Actions -->
+            <div class="col-sm-6 col-12 text-sm-end">
+              <div class="mx-n1">
+                <a class="btn d-inline-flex btn-sm btn-neutral border-base mx-1" href="#">
+                  <span class=" pe-2">
+                    <i class="bi bi-pencil"></i>
+                  </span>
+                  <span>Edit</span>
+                </a>
+                <a class="btn d-inline-flex btn-sm btn-primary mx-1" href="#">
+                  <span class=" pe-2">
+                    <i class="bi bi-plus"></i>
+                  </span>
+                  <span>Create</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Nav -->
+          <ul class="nav nav-tabs mt-4 overflow-x border-0">
+            <li class="nav-item ">
+              <a class="nav-link active" href="#">All files</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-regular" href="#">Shared</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-regular" href="#">File requests</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- Main -->
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>
