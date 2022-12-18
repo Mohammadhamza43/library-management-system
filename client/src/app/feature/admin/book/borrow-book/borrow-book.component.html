@@ -1,0 +1,92 @@
+<div class="card shadow border-0 mb-7">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col-sm-6 col-12 mb-4 mb-sm-0"><h5 class="mb-0 d-inline">Book Borrow Request</h5></div>
+    </div>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="submit()" [formGroup]="createBookForm">
+      <div class="row">
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="bookName">Book Name</label>
+            <input [class.is-invalid]="createBookForm.get('book_name').invalid
+            && (createBookForm.get('book_name').dirty
+            || createBookForm.get('book_name').touched)"
+                   class="form-control" formControlName="book_name" id="bookName" placeholder="Book Name" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="bookAuthor">Book Author</label>
+            <input [class.is-invalid]="createBookForm.get('book_author').invalid
+            && (createBookForm.get('book_author').dirty
+            || createBookForm.get('book_author').touched)"
+                   class="form-control" formControlName="book_author" id="bookAuthor" placeholder="Book Author" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="bookPrice">Book Price</label>
+            <input [class.is-invalid]="createBookForm.get('book_price').invalid
+            && (createBookForm.get('book_price').dirty
+            || createBookForm.get('book_price').touched)"
+                   class="form-control" formControlName="book_price" id="bookPrice" placeholder="Book Price" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="bookQuantity">Book Quantity</label>
+            <input [class.is-invalid]="createBookForm.get('book_qty').invalid
+            && (createBookForm.get('book_qty').dirty
+            || createBookForm.get('book_qty').touched)"
+                   class="form-control" formControlName="book_qty" id="bookQuantity" placeholder="Book Quantity" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="bookISBN">Book ISBN</label>
+            <input [class.is-invalid]="createBookForm.get('book_isbn').invalid
+            && (createBookForm.get('book_isbn').dirty
+            || createBookForm.get('book_isbn').touched)" class="form-control" formControlName="book_isbn" id="bookISBN" placeholder="Book ISBN"
+                   type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="bookStatus">Book Status</label>
+            <select [class.is-invalid]="createBookForm.get('book_status').invalid
+            && (createBookForm.get('book_status').dirty
+            || createBookForm.get('book_status').touched)" class="form-select" formControlName="book_status" id="bookStatus" placeholder="Book Status">
+              <option value="">Select Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">In Active</option>
+            </select>
+            <!--<input
+                   class="form-control" formControlName="book_status" id="bookStatus" placeholder="Book Status" type="text">-->
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <div class="row align-items-center">
+      <div class="text-end col col-12 text-sm-end">
+        <div class="mx-n1">
+          <a class="btn d-inline-flex btn-sm btn-primary mx-1" (click)="submit()">
+            <span class="pe-2">
+              <i class="bi bi-plus"></i>
+            </span>
+            <span>Submit</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

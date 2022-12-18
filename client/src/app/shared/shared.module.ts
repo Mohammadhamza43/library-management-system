@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AccessControlDirective } from './directives/access-control.directive';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AccessControlDirective
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports: [
+    AccessControlDirective
   ]
 })
 export class SharedModule { }

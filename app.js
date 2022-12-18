@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', Users)
 app.use('/admin', Admins)
-app.use('/admin', Books)
+app.use('/books', Books)
 app.use('/transdetails', Transactions);
 
 

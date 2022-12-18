@@ -1,1 +1,102 @@
-<p>create-student works!</p>
+<div class="card shadow border-0 mb-7">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col-sm-6 col-12 mb-4 mb-sm-0"><h5 class="mb-0 d-inline">{{formTitle}}</h5></div>
+    </div>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="submit()" [formGroup]="createStudentForm">
+      <div class="row">
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="first_name">First Name</label>
+            <input [class.is-invalid]="createStudentForm.get('first_name').invalid
+            && (createStudentForm.get('first_name').dirty
+            || createStudentForm.get('first_name').touched)"
+                   class="form-control" formControlName="first_name" id="first_name" placeholder="First Name" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="last_name">Last Name</label>
+            <input [class.is-invalid]="createStudentForm.get('last_name').invalid
+            && (createStudentForm.get('last_name').dirty
+            || createStudentForm.get('last_name').touched)"
+                   class="form-control" formControlName="last_name" id="last_name" placeholder="Last Name" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="student_id">Student ID</label>
+            <input [class.is-invalid]="createStudentForm.get('student_id').invalid
+            && (createStudentForm.get('student_id').dirty
+            || createStudentForm.get('student_id').touched)"
+                   class="form-control" formControlName="student_id" id="student_id" placeholder="Student ID" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="contact_number">Contact</label>
+            <input [class.is-invalid]="createStudentForm.get('contact_number').invalid
+            && (createStudentForm.get('contact_number').dirty
+            || createStudentForm.get('contact_number').touched)"
+                   class="form-control" formControlName="contact_number" id="contact_number" placeholder="Contact" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="email">Email</label>
+            <input [class.is-invalid]="createStudentForm.get('email').invalid
+            && (createStudentForm.get('email').dirty
+            || createStudentForm.get('email').touched)" class="form-control" formControlName="email" id="email" placeholder="Email"
+                   type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="password">Password</label>
+            <input [class.is-invalid]="createStudentForm.get('password').invalid
+            && (createStudentForm.get('password').dirty
+            || createStudentForm.get('password').touched)" class="form-control" formControlName="password" id="password" placeholder="Password"
+                   type="password">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="status">Status</label>
+            <select [class.is-invalid]="createStudentForm.get('status').invalid
+            && (createStudentForm.get('status').dirty
+            || createStudentForm.get('status').touched)" class="form-select" formControlName="status" id="status" placeholder="Status">
+              <option value="">Select Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">In Active</option>
+            </select>
+            <!--<input
+                   class="form-control" formControlName="status" id="bookStatus" placeholder="Book Status" type="text">-->
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <div class="row align-items-center">
+      <div class="text-end col col-12 text-sm-end">
+        <div class="mx-n1">
+          <a class="btn d-inline-flex btn-sm btn-primary mx-1" (click)="submit()">
+            <span class="pe-2">
+              <i class="bi bi-plus"></i>
+            </span>
+            <span>Submit</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,10 @@ const Schema = mongoose.Schema
 
 // Create Schema
 const UserSchema = new Schema({
-  user_name: {
+  first_name: {
+    type: String
+  },
+  last_name: {
     type: String
   },
   contact_number: {
@@ -11,11 +14,25 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
     required: true
+  },
+  role: {
+    type: String,
+    required: true
+  },
+  student_id: {
+    type: String,
+  },
+  designation: {
+    type: String,
+  },
+  status: {
+    type: String,
   },
   date: {
     type: Date,

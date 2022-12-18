@@ -9,6 +9,12 @@ import { CreateLibrarianComponent } from './librarian/create-librarian/create-li
 import { ListLibrarianComponent } from './librarian/list-librarian/list-librarian.component';
 import { ListBookComponent } from './book/list-book/list-book.component';
 import { CreateBookComponent } from './book/create-book/create-book.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { BorrowBookComponent } from './book/borrow-book/borrow-book.component';
+import { BorrowedBookComponent } from './book/borrowed-book/borrowed-book.component';
+import { BookRequestComponent } from './book/book-request/book-request.component';
+import {SharedModule} from "../../shared/shared.module";
+import {AuthGuard} from "../../shared/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -22,10 +28,12 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'student',
+        canActivateChild: [AuthGuard],
         children: [
           {
             path: '',
@@ -48,6 +56,7 @@ const routes: Routes = [
       },
       {
         path: 'librarian',
+        canActivateChild: [AuthGuard],
         children: [
           {
             path: '',
@@ -70,6 +79,7 @@ const routes: Routes = [
       },
       {
         path: 'book',
+        canActivateChild: [AuthGuard],
         children: [
           {
             path: '',
@@ -88,8 +98,26 @@ const routes: Routes = [
             path: 'edit/:id',
             component: CreateBookComponent
           },
+          {
+            path: 'borrow/:id',
+            component: BorrowBookComponent
+          },
+          {
+            path: 'me',
+            component: BorrowedBookComponent
+          },
         ]
-      }
+      },
+      {
+        path: 'my-books',
+        component: BorrowedBookComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'book-requests',
+        component: BookRequestComponent,
+        canActivate: [AuthGuard],
+      },
     ]
   }
 ]
@@ -103,11 +131,16 @@ const routes: Routes = [
     CreateLibrarianComponent,
     ListLibrarianComponent,
     ListBookComponent,
-    CreateBookComponent
+    CreateBookComponent,
+    BorrowBookComponent,
+    BorrowedBookComponent,
+    BookRequestComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ReactiveFormsModule,
+        SharedModule
+    ]
 })
 export class AdminModule { }

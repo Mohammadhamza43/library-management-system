@@ -1,1 +1,102 @@
-<p>create-librarian works!</p>
+<div class="card shadow border-0 mb-7">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col-sm-6 col-12 mb-4 mb-sm-0"><h5 class="mb-0 d-inline">{{formTitle}}</h5></div>
+    </div>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="submit()" [formGroup]="createLibrarianForm">
+      <div class="row">
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="first_name">First Name</label>
+            <input [class.is-invalid]="createLibrarianForm.get('first_name').invalid
+            && (createLibrarianForm.get('first_name').dirty
+            || createLibrarianForm.get('first_name').touched)"
+                   class="form-control" formControlName="first_name" id="first_name" placeholder="First Name" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="last_name">Last Name</label>
+            <input [class.is-invalid]="createLibrarianForm.get('last_name').invalid
+            && (createLibrarianForm.get('last_name').dirty
+            || createLibrarianForm.get('last_name').touched)"
+                   class="form-control" formControlName="last_name" id="last_name" placeholder="Last Name" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="designation">Designation</label>
+            <input [class.is-invalid]="createLibrarianForm.get('designation').invalid
+            && (createLibrarianForm.get('designation').dirty
+            || createLibrarianForm.get('designation').touched)"
+                   class="form-control" formControlName="designation" id="designation" placeholder="Designation" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="contact_number">Contact</label>
+            <input [class.is-invalid]="createLibrarianForm.get('contact_number').invalid
+            && (createLibrarianForm.get('contact_number').dirty
+            || createLibrarianForm.get('contact_number').touched)"
+                   class="form-control" formControlName="contact_number" id="contact_number" placeholder="Contact" type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="email">Email</label>
+            <input [class.is-invalid]="createLibrarianForm.get('email').invalid
+            && (createLibrarianForm.get('email').dirty
+            || createLibrarianForm.get('email').touched)" class="form-control" formControlName="email" id="email" placeholder="Email"
+                   type="text">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="password">Password</label>
+            <input [class.is-invalid]="createLibrarianForm.get('password').invalid
+            && (createLibrarianForm.get('password').dirty
+            || createLibrarianForm.get('password').touched)" class="form-control" formControlName="password" id="password" placeholder="Password"
+                   type="password">
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="">
+            <label class="form-label" for="status">Status</label>
+            <select [class.is-invalid]="createLibrarianForm.get('status').invalid
+            && (createLibrarianForm.get('status').dirty
+            || createLibrarianForm.get('status').touched)" class="form-select" formControlName="status" id="status" placeholder="Status">
+              <option value="">Select Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">In Active</option>
+            </select>
+            <!--<input
+                   class="form-control" formControlName="status" id="bookStatus" placeholder="Book Status" type="text">-->
+            <span class="mt-2 invalid-feedback">Field is required</span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <div class="row align-items-center">
+      <div class="text-end col col-12 text-sm-end">
+        <div class="mx-n1">
+          <a class="btn d-inline-flex btn-sm btn-primary mx-1" (click)="submit()">
+            <span class="pe-2">
+              <i class="bi bi-plus"></i>
+            </span>
+            <span>Submit</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

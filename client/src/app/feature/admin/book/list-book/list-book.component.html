@@ -1,1 +1,370 @@
-<p>list-book works!</p>
+<div class="card shadow border-0 mb-7">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col-sm-6 col-12 mb-4 mb-sm-0"><h5 class="mb-0 d-inline">Books</h5></div>
+      <div *appAccessControl="['ADMINISTRATOR', 'LIBRARIAN']" class="col-sm-6 col-12 text-sm-end">
+        <div class="mx-n1">
+          <a class="btn d-inline-flex btn-sm btn-primary mx-1" routerLink="../create">
+            <span class=" pe-2">
+              <i class="bi bi-plus"></i>
+            </span>
+            <span>Create Book</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-nowrap">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let book of books">
+        <tr>
+          <td><a class="text-heading font-semibold">{{book.book_name}}</a></td>
+          <td>{{book.book_author}}</td>
+          <td>{{book.book_price}}</td>
+          <td>{{book.book_qty}}</td>
+          <td>{{book.book_isbn}}</td>
+          <td><span class="badge badge-lg badge-dot"><i class="bg-success"></i>{{book.book_status}}</span></td>
+          <td class="">
+            <a *appAccessControl="['STUDENT']" (click)="borrowBook(book._id)" class="btn d-inline-flex btn-sm btn-primary border-base mx-1">
+              <span class="pe-2">
+                <i class="bi bi-book"></i>
+              </span>
+              <span>Borrow</span>
+            </a>
+            <a *appAccessControl="['ADMINISTRATOR', 'LIBRARIAN']" (click)="editBook(book._id)" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+              <span class="pe-2">
+                <i class="bi bi-pencil"></i>
+              </span>
+              <span>Edit</span>
+            </a>
+            <button *appAccessControl="['ADMINISTRATOR', 'LIBRARIAN']" (click)="deleteBook(book._id)" class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+      <!--      <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Darlene Robertson
+                </a>
+              </td>
+              <td>
+                Apr 15, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-2.png">
+                <a class="text-heading font-semibold" href="#">
+                  Netguru
+                </a>
+              </td>
+              <td>
+                $2.750
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-warning"></i>Postponed
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Theresa Webb
+                </a>
+              </td>
+              <td>
+                Mar 20, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-3.png">
+                <a class="text-heading font-semibold" href="#">
+                  Figma
+                </a>
+              </td>
+              <td>
+                $4.200
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-success"></i>Scheduled
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Kristin Watson
+                </a>
+              </td>
+              <td>
+                Feb 15, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-4.png">
+                <a class="text-heading font-semibold" href="#">
+                  Mailchimp
+                </a>
+              </td>
+              <td>
+                $3.500
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-dark"></i>Not discussed
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Cody Fisher
+                </a>
+              </td>
+              <td>
+                Apr 10, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-5.png">
+                <a class="text-heading font-semibold" href="#">
+                  Webpixels
+                </a>
+              </td>
+              <td>
+                $1.500
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-danger"></i>Canceled
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Robert Fox
+                </a>
+              </td>
+              <td>
+                Feb 15, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-1.png">
+                <a class="text-heading font-semibold" href="#">
+                  Dribbble
+                </a>
+              </td>
+              <td>
+                $3.500
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-success"></i>Scheduled
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Darlene Robertson
+                </a>
+              </td>
+              <td>
+                Apr 15, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-2.png">
+                <a class="text-heading font-semibold" href="#">
+                  Netguru
+                </a>
+              </td>
+              <td>
+                $2.750
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-warning"></i>Postponed
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1610878722345-79c5eaf6a48c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Theresa Webb
+                </a>
+              </td>
+              <td>
+                Mar 20, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-3.png">
+                <a class="text-heading font-semibold" href="#">
+                  Figma
+                </a>
+              </td>
+              <td>
+                $4.200
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-success"></i>Scheduled
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1612422656768-d5e4ec31fac0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Kristin Watson
+                </a>
+              </td>
+              <td>
+                Feb 15, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-4.png">
+                <a class="text-heading font-semibold" href="#">
+                  Mailchimp
+                </a>
+              </td>
+              <td>
+                $3.500
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-dark"></i>Not discussed
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img alt="..."
+                     class="avatar avatar-sm rounded-circle me-2"
+                     src="https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80">
+                <a class="text-heading font-semibold" href="#">
+                  Cody Fisher
+                </a>
+              </td>
+              <td>
+                Apr 10, 2021
+              </td>
+              <td>
+                <img alt="..." class="avatar avatar-xs rounded-circle me-2"
+                     src="https://preview.webpixels.io/web/img/other/logos/logo-5.png">
+                <a class="text-heading font-semibold" href="#">
+                  Webpixels
+                </a>
+              </td>
+              <td>
+                $1.500
+              </td>
+              <td>
+                        <span class="badge badge-lg badge-dot">
+                          <i class="bg-danger"></i>Canceled
+                        </span>
+              </td>
+              <td class="text-end">
+                <a class="btn btn-sm btn-neutral" href="#">View</a>
+                <button class="btn btn-sm btn-square btn-neutral text-danger-hover" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>-->
+      </tbody>
+    </table>
+  </div>
+  <!--<div class="card-footer border-0 py-5">
+    <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
+  </div>-->
+</div>
