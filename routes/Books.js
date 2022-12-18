@@ -162,7 +162,7 @@ router.get('/', (req, res) => {
 
     Book.find()
         .then((result) => {
-            res.status(200).send({success: true, result});
+            res.status(200).send({success: true, message: 'Fetched Successfully', result});
         })
         .catch((err) => {
             res.status(500);
@@ -175,7 +175,7 @@ router.get('/:id', (req, res) => {
     var id = req.params.id;
     Book.findById(id)
         .then((result) => {
-            res.status(200).send({success: true, result});
+            res.status(200).send({success: true, message: 'Fetched Successfully', result});
         })
         .catch((err) => {
             res.status(500).send({success: false, message: '' + err.message})
