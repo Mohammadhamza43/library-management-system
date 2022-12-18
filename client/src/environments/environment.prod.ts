@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://localhost:3000/',
+  baseUrl: 'https://library-management-system-3lb.vercel.app/',
   authTokenKey: 'jaslkdjlsadlkjsasalkjdlasjdla'
 };
